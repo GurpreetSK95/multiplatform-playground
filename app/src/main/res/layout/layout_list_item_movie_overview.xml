@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="350dp">
+
+    <ImageView
+        android:id="@+id/posterImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.6"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/movieOverviewTitle"
+        app:layout_constraintEnd_toEndOf="@id/movieOverviewTitle"
+        app:layout_constraintStart_toStartOf="@id/movieOverviewTitle"
+        app:layout_constraintTop_toTopOf="@id/movieOverviewTitle" />
+
+    <TextView
+        android:id="@+id/movieOverviewTitle"
+        style="@style/Movie.Overview.Textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:padding="16dp"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Godfather" />
+</androidx.constraintlayout.widget.ConstraintLayout>

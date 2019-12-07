@@ -1,0 +1,20 @@
+// This task attaches native framework built from ios module to Xcode project
+// (see iosApp directory). Don't run this task directly,
+// Xcode runs this task itself during its build process.
+// Before opening the project from iosApp directory in Xcode,
+// make sure all Gradle infrastructure exists (gradle.wrapper, gradlew).
+task copyFramework {
+    def buildType = project.findProperty("kotlin.build.type") ?: "DEBUG"
+    dependsOn "link${buildType.toLowerCase().capitalize()}FrameworkIos"
+
+    doLast {
+        def srcFile = kotlin.targets.ios.binaries.getFramework(buildType).outputFile
+        def targetDir = getProperty("configuration.build.dir")
+        copy {
+            from srcFile.parent
+            into targetDir
+            include 'app.framework/**'
+            include 'app .framework.dSYM'
+        }
+    }
+}
